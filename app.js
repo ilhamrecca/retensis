@@ -3,7 +3,7 @@ const app = express();
 require("dotenv").config();
 const cors = require("cors");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 80;
 const errorHandler = require("./middlewares/errorHandlers");
 const retensisRoutes = require("./routes/retensisRoutes");
 
@@ -11,13 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-
 //routes
 app.use("/retensis", retensisRoutes);
-
 
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log("listening on port ", PORT);
+  console.log("listening on port ", PORT);
 });
