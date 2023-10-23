@@ -1,0 +1,6 @@
+sequelize model:generate --name News --attributes title:string,content:text,imgURL:string,authorId:integer,categoryId:integer;
+sequelize model:generate --name Category --attributes name:string;
+sequelize model:generate --name Author --attributes name:string,username:string,email:string,password:string;
+
+sequelize migration:generate --name add_CategoryId_FK_to_News;
+sequelize migration:generate --name add_AuthorId_FK_to_News;
