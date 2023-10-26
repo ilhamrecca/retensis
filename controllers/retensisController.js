@@ -254,6 +254,7 @@ class RetensisController {
       const daysInMonth = new Date(year, month, 0).getDate();
       let formattedData = data.map((data) => {
         let kwh = Number(data.dataValues.averageValue) * 20 * daysInMonth;
+        console.log(kwh);
         kwh = Number(kwh.toFixed(2));
         let EstimatedCost = kwh * 1500;
         let ppn = 0.11 * EstimatedCost;
