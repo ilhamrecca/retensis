@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 4000;
 const errorHandler = require("./middlewares/errorHandlers");
 const retensisRoutes = require("./routes/retensisRoutes");
 
+var options = {
+  key: fs.readFileSync("/etc/apache2/ssl/treg5cloud.key"),
+  cert: fs.readFileSync("/etc/apache2/ssl/treg5cloud.crt"),
+};
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -15,7 +20,4 @@ app.use(cors());
 app.use("/retensis", retensisRoutes);
 
 app.use(errorHandler);
-
-app.listen(PORT, () => {
-  console.log("listening on port ", PORT);
-});
+https.createServer(options, app).listen(4000);
