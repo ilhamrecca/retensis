@@ -16,7 +16,7 @@ const retensisRoutes = require("./routes/retensisRoutes");
 
 var options = {
   key: fs.readFileSync("/etc/apache2/ssl/appv.cloud2.key"),
-  cert: fs.readFileSync(" /etc/apache2/ssl/appv.cloud2.crt"),
+  cert: fs.readFileSync("/etc/apache2/ssl/appv.cloud2.crt"),
 };
 
 app.use(express.urlencoded({ extended: true }));
