@@ -10,9 +10,13 @@ const PORT = process.env.PORT || 4000;
 const errorHandler = require("./middlewares/errorHandlers");
 const retensisRoutes = require("./routes/retensisRoutes");
 
+// SSLCertificateFile / etc / apache2 / ssl / appv.cloud2.crt;
+// SSLCertificateKeyFile / etc / apache2 / ssl / appv.cloud2.key;
+// SSLCertificateChainFile / etc / apache2 / ssl / appv.cloud2.ca;
+
 var options = {
-  key: fs.readFileSync("/etc/apache2/ssl/treg5cloud.key"),
-  cert: fs.readFileSync("/etc/apache2/ssl/treg5cloud.crt"),
+  key: fs.readFileSync("/etc/apache2/ssl/appv.cloud2.key"),
+  cert: fs.readFileSync(" /etc/apache2/ssl/appv.cloud2.crt"),
 };
 
 app.use(express.urlencoded({ extended: true }));
